@@ -13,9 +13,9 @@
 
     .tag-bar
       %h2 Current Tags
-      %ul
-        - @current_tags.each do |tag|
-          %li= tag
+      - viable_tags.each do |viable|
+        = link_to(viable.name, "/tags/#{(current_tags.map(&:name) + [viable.name]).join('/')}")
+
 
     %main.container
       = yield

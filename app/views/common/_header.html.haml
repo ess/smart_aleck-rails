@@ -1,2 +1,8 @@
 .header
   %h1= link_to('SmartAleck', root_path)
+  %nav
+    - if current_user.present?
+      = link_to('Categories', categories_path, id: 'manage-categories')
+      = link_to('Log Out', '#')
+    - else
+      = link_to('Log In', '#')

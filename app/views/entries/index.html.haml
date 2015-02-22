@@ -1,4 +1,4 @@
-%h2 Current tags
-%ul
-  - @current_tags.each do |tag|
-    %li= tag
+- @entries.each do |entry|
+  .entry{id: "entry-#{entry.id}"}
+    %h3.title= entry.title
+    .content= entry.content

@@ -1,17 +1,7 @@
 class EntriesController < ApplicationController
-
   def index
-    current_tags
-    @entries = Entry.all
+    @entries = Entry.where(
+      category_hash: SmartAleck::CategoryIndexer.index(current_tags)
+    )
   end
-
-  private
-  def current_tags
-    @current_tags = []
-    if params[:tags].present?
-      @current_tags = params[:tags].split('/').map(&:downcase)
-    end
-    @current_tags
-  end
-
 end
