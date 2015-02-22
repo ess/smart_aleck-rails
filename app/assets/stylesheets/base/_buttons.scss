@@ -2,7 +2,7 @@
 button {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
-  background-color: $action-color;
+  background-color: $button-color;
   border-radius: $base-border-radius;
   border: none;
   color: #fff;
@@ -20,7 +20,7 @@ button {
 
   &:hover,
   &:focus {
-    background-color: darken($action-color, 15%);
+    background-color: lighten($button-color, 5%);
     color: #fff;
   }
 

@@ -23,11 +23,36 @@ body {
 }
 
 .tag-bar {
-  @include span-columns(2 of 12)
+  @include span-columns(2 of 12);
+  background-color: grey;
+  border-right: 1px solid #fff;
+
+  a {
+    border-radius: 0.5em;
+    padding: 0.25em 0.25em 0.25em 0.25em;
+    margin: 0.25em 0.25em 0.25em 0.25em;
+    background-color: $dark-gray;
+  }
 }
 
 main {
   @include span-columns(10 of 12);
+  /*@include shift(1);*/
+
+  .entry {
+    @include span-columns(10 of 10);
+
+    .title {
+      @include span-columns(10 of 10);
+      @include pad(0.5em 0.5em 0.5em 0.5em);
+      background-color: grey;
+    }
+
+    .content {
+      @include span-columns(10 of 10);
+      @include pad(0.5em 0.5em 0.5em 0.5em);
+    }
+  }
 }
 
 .header {
