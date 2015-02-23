@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   def get_current_categories
     current_tags
     viable_tags
+    if current_user.present?
+      orphan_tags
+      other_tags
+    end
   end
 
   def viable_tags
@@ -25,4 +29,19 @@ class ApplicationController < ActionController::Base
     @current_tags
   end
   helper_method :current_tags
+
+  def orphan_tags
+    @orphan_categories = Category.without_entries - current_tags
+  end
+  helper_method :orphan_tags
+
+  def other_tags
+    @other_categories = Category.excluding(@current_tags + @viable_tags)
+  end
+  helper_method :other_tags
+
+  def context_link
+    entries_tagged_path(tags: @current_tags.map(&:name).join('/'))
+  end
+  helper_method :context_link
 end

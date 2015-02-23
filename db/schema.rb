@@ -28,20 +28,16 @@ ActiveRecord::Schema.define(version: 20150222072547) do
 
   add_index "categorizations", ["entry_id", "category_id"], name: "index_categorizations_on_entry_id_and_category_id", unique: true
 
-  create_table "category_links", force: :cascade do |t|
-    t.integer  "category_id", null: false
-    t.integer  "other_id",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "entries", force: :cascade do |t|
     t.string   "title",                     null: false
     t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "category_hash", default: 0
   end
+
+  add_index "entries", ["category_hash"], name: "index_entries_on_category_hash"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,4 +1,14 @@
+- unless @current_tags.empty?
+  %p
+    Current Categories: #{@current_tags.map(&:name).join(', ')}
+
+- if current_user.present?
+  = render(partial: 'new_entry_form', locals: {entry: @entry, current_tags: current_tags})
+
+- if current_tags.empty?
+  = render(partial: 'welcome')
+
 - @entries.each do |entry|
   .entry{id: "entry-#{entry.id}"}
     %h3.title= entry.title
-    .content= entry.content
+    .content= Kramdown::Document.new(entry.content).to_html.html_safe

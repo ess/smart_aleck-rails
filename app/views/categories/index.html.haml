@@ -1,9 +1,10 @@
-%h2 New Category
+%fieldset
+  %legend New Category
 
-= form_for(@category, html: {id: 'new-category'}) do |f|
-  = f.label(:name, 'Name')
-  = f.text_field(:name)
-  = f.submit(id: 'create-category')
+  = form_for(@category, html: {id: 'new-category'}) do |f|
+    = f.label(:name, 'Name')
+    = f.text_field(:name)
+    = f.submit(id: 'create-category')
 
 %h2 All Categories
 

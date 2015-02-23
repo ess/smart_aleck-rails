@@ -9,13 +9,8 @@
     = csrf_meta_tags
 
   %body
-    = render partial: 'common/header'
-
-    .tag-bar
-      %h2 Current Tags
-      - viable_tags.each do |viable|
-        = link_to(viable.name, "/tags/#{(current_tags.map(&:name) + [viable.name]).join('/')}")
-
+    = render(partial: 'common/header')
+    = render(partial: 'common/sidebar')
 
     %main.container
       = yield

@@ -12,10 +12,11 @@ module SmartAleck
     end
 
     def initialize(options = {})
-      check_required_options(options, :title, :content, :categories)
+      check_required_options(options, :title, :content, :categories, :user)
       @title = options[:title]
       @content = options[:content]
       @categories = options[:categories]
+      @user = options[:user]
       populate_entry!
       categorize_entry!
     end
@@ -25,7 +26,8 @@ module SmartAleck
       @entry = Entry.create(
         title: @title,
         content: @content,
-        category_hash: CategoryIndexer.index(@categories)
+        category_hash: CategoryIndexer.index(@categories),
+        user: @user
       )
     end
 

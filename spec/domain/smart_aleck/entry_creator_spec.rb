@@ -1,12 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe SmartAleck::EntryCreator do
+  let(:user) {
+    User.create(
+      email: Faker::Internet.email,
+      password: 'supersekrat',
+      password_confirmation: 'supersekrat')
+  }
   let(:cat1) {Category.create(name: 'cat 1')}
   let(:title) {Faker::Lorem.sentence}
   let(:content) {Faker::Lorem.paragraph}
   let(:categories) {[cat1]}
   let(:good_options) {
-    {title: title, content: content, categories: categories}
+    {title: title, content: content, categories: categories, user: user}
   }
   let(:creator) {described_class.new(good_options)}
 
@@ -18,6 +24,11 @@ RSpec.describe SmartAleck::EntryCreator do
 
     it 'requires content' do
       good_options.delete(:content)
+      expect {described_class.new(good_options)}.to raise_error(ArgumentError)
+    end
+
+    it 'requires a user' do
+      good_options.delete(:user)
       expect {described_class.new(good_options)}.to raise_error(ArgumentError)
     end
 
@@ -44,6 +55,10 @@ RSpec.describe SmartAleck::EntryCreator do
     it 'has a category hash' do
       expect(creator.entry.category_hash).
         to eql(SmartAleck::CategoryIndexer.index(categories))
+    end
+
+    it 'belongs to the proper user' do
+      expect(creator.entry.user).to eql(user)
     end
   end
 end
