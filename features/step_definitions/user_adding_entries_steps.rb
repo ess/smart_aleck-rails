@@ -6,7 +6,6 @@ end
 
 When %(I browse to a Category context) do
   category_id = memorize_fact(:category_id, Category.all.sample.id)
-  save_and_open_page
   within('#tags') do
     as_me do
       find("#category-#{category_id}").click()
