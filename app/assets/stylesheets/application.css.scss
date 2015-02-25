@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+body {
+  @include outer-container;
+  background-color: #000;
+}
+
+.sidebar {
+  @include span-columns(4 of 12);
+  @include padding(0.5em 0.5em 0.5em 0.5em);
+  @include border-top-radius(1em);
+  @include border-bottom-radius(1em);
+  border: 1px solid white;
+  /*border-radius: 1em;*/
+
+  h2 {
+    text-align: center;
+  }
+
+  .tag-list {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    text-align: justify;
+
+    a {
+      /*@include span-columns(1 of 4);*/
+      /*@include padding(0.5em);*/
+      @include border-top-radius($base-border-radius);
+      @include border-bottom-radius($base-border-radius);
+      display: inline-block;
+      padding: 0.5em;
+      margin-bottom: 0.5em;
+      background-color: $dark-gray;
+    }
+  }
+}
+
+main {
+  @include span-columns(8 of 12);
+  @include omega;
+  /*@include shift(1);*/
+
+  .entry {
+    @include span-columns(8 of 8);
+    @include border-top-radius($base-border-radius);
+    @include border-bottom-radius($base-border-radius);
+    border: 1px solid white;
+    margin-bottom: 1em;
+
+    .title {
+      @include span-columns(8 of 8);
+      @include padding(0.5em);
+      @include border-top-radius($base-border-radius);
+      border-bottom: 1px solid white;
+    }
+
+    .content {
+      @include span-columns(8 of 8);
+      @include padding(1em);
+      text-align: justify;
+
+      a {
+        color: red;
+      }
+
+      code {
+        padding-left: 1em;
+        background-color: $light-gray;
+      }
+    }
+  }
+
+  fieldset {
+    @include border-top-radius($base-border-radius);
+    @include border-bottom-radius($base-border-radius);
+  }
+
+  form {
+    @include span-columns(8 of 8);
+    @include pad(0.5em 0.5em 0.5em 0.5em);
+
+    label {
+      @include span-columns(2 of 8);
+    }
+    input {
+      @include span-columns(5 of 8);
+    }
+  }
+}
+
+.header {
+  @include span-columns(12 of 12);
+  @include omega;
+  @include pad(1em 1em 1em 1em);
+  @include border-top-radius($base-border-radius);
+  margin-bottom: 20px;
+  border: 1px solid white;
+
+  h1 {
+    @include span-columns(2 of 12);
+  }
+
+  nav {
+    @include span-columns(8 of 12);
+    @include omega;
+    /*@include shift(4);*/
+
+    a {
+      @include span-columns(2 of 8);
+    }
+  }
+}

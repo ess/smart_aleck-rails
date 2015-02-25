@@ -1,0 +1,13 @@
+%fieldset
+  %legend New Category
+
+  = form_for(@category, html: {id: 'new-category'}) do |f|
+    = f.label(:name, 'Name')
+    = f.text_field(:name)
+    = f.submit(id: 'create-category')
+
+%h2 All Categories
+
+%ul#category-list
+  - @categories.each do |category|
+    %li{id: "category-#{category.id}"}= category.name

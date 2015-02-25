@@ -1,0 +1,1 @@
+= link_to(category.name, "/tags/#{(current_tags.map(&:name) + [category.name]).join('/')}", id: "category-#{category.id}")

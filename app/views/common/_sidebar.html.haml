@@ -1,0 +1,12 @@
+.sidebar#tags
+  %h2 Categories with Entries
+  .tag-list
+    - viable_tags.each do |viable|
+      = render(partial: 'common/category_link', locals: {current_tags: current_tags, category: viable})
+
+  - if current_user.present?
+    %h2 Other Categories
+    .tag-list
+      - @other_categories.each do |category|
+        = render(partial: 'common/category_link', locals: {current_tags: current_tags, category: category})
+
