@@ -129,6 +129,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     multi_test (0.1.2)
+    mysql2 (0.3.18)
     neat (1.7.1)
       bourbon (>= 4.0)
       sass (>= 3.3)
@@ -257,6 +258,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   kramdown
+  mysql2
   neat
   poltergeist
   rails (= 4.2.0)
