@@ -1,12 +1,13 @@
-%fieldset
-  %legend Create A New Entry Here
+.expander
+  %a#js-expander-trigger{class: 'expander-trigger expander-hidden'} Add an Entry Here
+  .expander-content#js-expander-content
+    %fieldset
+      = form_for(entry, html: {id: 'new-entry'}) do |f|
+        = f.label(:title, 'Title')
+        = f.text_field(:title)
 
-  = form_for(entry, html: {id: 'new-entry'}) do |f|
-    = f.label(:title, 'Title')
-    = f.text_field(:title)
+        = f.label(:content, 'Content')
+        = f.text_area(:content)
 
-    = f.label(:content, 'Content')
-    = f.text_area(:content)
-
-    = f.hidden_field(:categories, value: current_tags.map(&:id).join(','))
-    = f.submit(id: 'create-entry')
+        = f.hidden_field(:categories, value: current_tags.map(&:id).join(','))
+        = f.submit(id: 'create-entry')
