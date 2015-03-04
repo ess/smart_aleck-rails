@@ -5,9 +5,6 @@
 - if current_user.present?
   = render(partial: 'new_entry_form', locals: {entry: @entry, current_tags: current_tags})
 
-- if current_tags.empty?
-  = render(partial: 'welcome')
-
 - @entries.each do |entry|
   .entry{id: "entry-#{entry.id}"}
     %h3.title= entry.title
