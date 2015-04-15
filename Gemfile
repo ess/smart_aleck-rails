@@ -5,6 +5,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'kramdown'
 gem 'mysql2', group: :production
+gem 'pg', group: :production
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spring'
+  gem 'dotenv-rails'
 end
 
 group :test do
