@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-gem 'rails_12factor'
 gem 'haml-rails'
 gem 'devise'
 gem 'kramdown'
@@ -22,11 +21,16 @@ gem 'turbolinks'
 
 gem 'unicorn'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spring'
   gem 'dotenv-rails'
+  gem 'gitnesse'
 end
 
 group :test do
