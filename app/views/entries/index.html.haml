@@ -8,4 +8,4 @@
 - @entries.each do |entry|
   .entry{id: "entry-#{entry.id}"}
     %h3.title= entry.title
-    .content= Kramdown::Document.new(entry.content).to_html.html_safe
+    .content= GitHub::Markdown.render_gfm(entry.content).html_safe

@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'haml-rails'
 gem 'devise'
-gem 'kramdown'
+#gem 'kramdown'
+gem 'github-markdown', require: 'github/markdown'
 gem 'mysql2', group: :production
+gem 'pg', group: :production
+gem 'smart_aleck'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -19,10 +22,16 @@ gem 'turbolinks'
 
 gem 'unicorn'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spring'
+  gem 'dotenv-rails'
+  gem 'gitnesse'
 end
 
 group :test do

@@ -6,4 +6,8 @@ class Entry < ActiveRecord::Base
 
   has_many :categories,
     through: :categorizations
+
+  def add_category(category)
+    self.categories << category
+  end
 end
