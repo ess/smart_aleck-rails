@@ -74,15 +74,19 @@ main {
     .content {
       @include span-columns(8 of 8);
       @include padding(1em);
-      text-align: justify;
+      /*text-align: justify;*/
 
       a {
         color: red;
       }
 
-      code {
-        padding-left: 1em;
-        background-color: $light-gray;
+      pre {
+        @include span-columns(8 of 8);
+        @include padding(1em);
+        font-weight: bold;
+        background-color: $dark-gray;
+        color: $lime-green;
+        border: 1px solid $lime-green;
       }
     }
   }

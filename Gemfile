@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'haml-rails'
 gem 'devise'
-gem 'kramdown'
+#gem 'kramdown'
+gem 'github-markdown', require: 'github/markdown'
 gem 'mysql2', group: :production
 gem 'pg', group: :production
 gem 'smart_aleck'
