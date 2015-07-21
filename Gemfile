@@ -19,6 +19,7 @@ gem 'bitters'
 
 gem 'jquery-rails'
 #gem 'turbolinks'
+gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'unicorn'
 
