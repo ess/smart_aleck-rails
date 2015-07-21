@@ -18,7 +18,7 @@ gem 'neat'
 gem 'bitters'
 
 gem 'jquery-rails'
-gem 'turbolinks'
+#gem 'turbolinks'
 
 gem 'unicorn'
 

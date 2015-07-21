@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!
   def index
     @entry = Entry.new
     @entries = Entry.where(
