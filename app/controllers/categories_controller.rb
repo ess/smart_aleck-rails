@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
   def index
     @category = Category.new
-    @categories = Category.all
+    #@categories = Category.all
   end
 
   def create
