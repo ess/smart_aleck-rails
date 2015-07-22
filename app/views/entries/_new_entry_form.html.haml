@@ -1,7 +1,7 @@
 .expander
   %a#js-expander-trigger{class: 'expander-trigger expander-hidden'} Add an Entry Here
   .expander-content#js-expander-content
-    %fieldset
+    %fieldset<
       = form_for(entry, html: {id: 'new-entry'}) do |f|
         = f.label(:title, 'Title')
         = f.text_field(:title)

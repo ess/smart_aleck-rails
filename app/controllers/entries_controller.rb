@@ -19,6 +19,19 @@ class EntriesController < ApplicationController
 
   end
 
+  def update
+    @entry = Entry.find(params[:id])
+    #if @entry.update_attributes(sanitized_params)
+      #format.json {respond_with_bip(@entry, {})}
+    #else
+      #format.json {respond_with_bip(@entry, {})}
+    #end
+    @entry.update(sanitized_params)
+    respond_to do |format|
+      format.json {respond_with_bip(@entry)}
+    end
+  end
+
   private
   def entry_params
     params.require(:entry).permit(:title, :content, :categories)
@@ -27,7 +40,9 @@ class EntriesController < ApplicationController
   def sanitized_params
     categories = entry_params.delete(:categories)
     puts "categories == #{categories.to_json}"
-    @current_tags = Category.find(categories.split(',').map(&:to_i))
+    if categories
+      @current_tags = Category.find(categories.split(',').map(&:to_i))
+    end
     entry_params
   end
 end

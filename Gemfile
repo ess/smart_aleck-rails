@@ -16,10 +16,11 @@ gem 'therubyracer', platforms: :ruby
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem 'best_in_place', '~> 3.0.1'
 
 gem 'jquery-rails'
 #gem 'turbolinks'
-gem 'activeadmin', '~> 1.0.0.pre1'
+#gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'unicorn'
 
