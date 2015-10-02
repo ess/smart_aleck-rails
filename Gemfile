@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'haml-rails'
 gem 'devise'
-#gem 'kramdown'
 gem 'github-markdown', require: 'github/markdown'
 gem 'mysql2', group: :production
 gem 'pg', group: :production
@@ -17,16 +16,9 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'best_in_place', '~> 3.0.1'
-
 gem 'jquery-rails'
-#gem 'turbolinks'
-#gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'unicorn'
-
-#group :production do
-  #gem 'rails_12factor'
-#end
 
 group :development, :test do
   gem 'sqlite3'
