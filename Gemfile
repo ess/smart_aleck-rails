@@ -11,7 +11,6 @@ gem 'smart_aleck'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'therubyracer', platforms: :ruby
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
@@ -19,6 +18,10 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'jquery-rails'
 
 gem 'unicorn'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'sqlite3'
