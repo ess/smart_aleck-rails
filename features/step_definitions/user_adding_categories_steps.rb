@@ -66,7 +66,7 @@ Then %(the Category is created) do
 end
 
 Then %(it appears in the Category List) do
-  within('#category-list') do
+  within('#tags') do
     expect(page).to have_content(recall_fact(:category_name))
   end
 end
