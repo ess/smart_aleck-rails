@@ -7,6 +7,10 @@
 
 - @entries.each do |entry|
   .entry{id: "entry-#{entry.id}"}
-    %h3.title= best_in_place(entry, :title, as: :input)
-    .content~ best_in_place(entry, :content, as: :textarea, ok_button: 'Save', cancel_button: 'Cancel', display_with: lambda { |content| GitHub::Markdown.render_gfm(content).html_safe }, activator: "#edit-content-#{entry.id}")
-    %a{href: '#', id: "edit-content-#{entry.id}"} Edit
+    - if current_user.present?
+      %h3.title= best_in_place(entry, :title, as: :input)
+      .content~ GitHub::Markdown.render_gfm(entry.content).html_safe
+    - else
+      %h3.title= entry.title
+      .content~ best_in_place(entry, :content, as: :textarea, ok_button: 'Save', cancel_button: 'Cancel', display_with: lambda { |content| GitHub::Markdown.render_gfm(content).html_safe }, activator: "#edit-content-#{entry.id}")
+      %a{href: '#', id: "edit-content-#{entry.id}"} Edit
