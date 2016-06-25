@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222072547) do
+ActiveRecord::Schema.define(version: 20160625175200) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       null: false
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20150222072547) do
   add_index "categorizations", ["entry_id", "category_id"], name: "index_categorizations_on_entry_id_and_category_id", unique: true
 
   create_table "entries", force: :cascade do |t|
-    t.string   "title",                     null: false
+    t.string   "title",                       null: false
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "category_hash", default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.text     "category_hash", default: "0"
   end
 
   add_index "entries", ["category_hash"], name: "index_entries_on_category_hash"
