@@ -6,15 +6,15 @@ gem 'haml-rails'
 gem 'devise'
 gem 'github-markdown', require: 'github/markdown'
 gem 'mysql2', group: :production
-gem 'pg', group: :production
+gem 'pg', '~> 0.21.0', group: :production
 gem 'smart_aleck', '~> 0.1'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'bourbon'
-gem 'neat'
-gem 'bitters'
+gem 'bourbon', '= 4.2.0'
+gem 'neat', '= 1.7.1'
+gem 'bitters', '1.0.0'
 gem 'best_in_place', '~> 3.0.1'
 gem 'jquery-rails'
 
@@ -25,7 +25,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '= 1.3.10'
   gem 'rspec-rails'
   gem 'spring'
   gem 'dotenv-rails'
