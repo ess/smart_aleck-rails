@@ -1,3 +1,3 @@
 Figaro.require_keys(
-  'DATBASE_URL',
+  'DATABASE_URL',
 )

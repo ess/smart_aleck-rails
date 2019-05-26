@@ -7,8 +7,7 @@ gem 'figaro', '~> 1.1'
 gem 'haml-rails'
 gem 'devise'
 gem 'github-markdown', require: 'github/markdown'
-gem 'mysql2', group: :production
-gem 'pg', '~> 0.21.0', group: :production
+gem 'pg', '~> 0.21.0'
 gem 'smart_aleck', '~> 0.1'
 
 gem 'sass-rails', '~> 5.0'
