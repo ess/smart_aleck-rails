@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby "2.5.1"
 
 gem 'rails', '4.2.11.1'
+gem 'bundler', '1.16.6'
+gem 'figaro', '~> 1.1'
 gem 'haml-rails'
 gem 'devise'
 gem 'github-markdown', require: 'github/markdown'
