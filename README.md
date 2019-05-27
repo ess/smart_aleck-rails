@@ -27,11 +27,33 @@ Once this finishes, the easiest way to interact with the dev environment is with
 
 ## Production ##
 
+There are three ways to run the application in production: bare server, container orchestration, and 12-factor PaaS. A PostgreSQL database for the app is presumed to exist for each of these scenarios.
+
+### Bare Server ###
+
+To run the application on a bare server (ie Engine Yard Cloud), there isn't actually all that much to do. In short, one just needs to make sure that the environment variables listed in `config/initializers/figaro.rb` are populated in the shell that will execute the application.
+
+On EY Cloud, for example, you might use the `custom-env_vars` cookbook to set up values for `DATABASE_URL` and `SECRET_KEY_BASE`.
+
+Alternately, one might add a deployment step that writes out `config/application.yml` that contains entries for those variables.
+
+Aside from that, the only thing that one needs to do is to run the application via `bundle exec unicorn ...`.
+
+### Container Orchestration ###
+
 A Docker based production configuration is included. To get started, you'll need Docker installed locally as well as an account on a repository to which you can push images. Once all of that is taken care of, the release process is like so (assuming you've set up local access to your repo):
 
 1. Build a tagged image: `docker build -t <your-repo-username>/smart_aleck-rails:<build-version>`
 2. Push your image: `docker push <your-repo-username>/smart_aleck-rails:<build-version>`
 3. Instruct your container orchestrator to use the new version of the image
+
+On an initial deploy, you'll also need to configure the orchestrator to inject `DATABASE_URL` and `SECRET_KEY_BASE` to reference your database and your install-specific crypto key base, respectively.
+
+### 12-factor PaaS ###
+
+To run the app on a 12-factor PaaS (ie Heroku/Deis/Hephy/Dokku), you effectively just need to push the application to the PaaS and configure both `DATABASE_URL` and `SECRET_KEY_BASE`.
+
+A `Procfile` is included that describes the default server process, and it is presumed that the `Dockerfile` included with the application will be detected and used by the PaaS to build the application.
 
 ## History ##
 
