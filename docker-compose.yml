@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.devtest
+    command: bundle exec rails s -b 0.0.0.0
+    environment:
+      DATABASE_URL: postgres://postgres:docker@db/postgres
+      SECRET_KEY_BASE: 36ef77b541077def38c03a191a05026e8f93043d59ebf6796d043e013d7431235d74cb5ba44f30d31ba1a4dd8d76cc1c180d2dae411ef9cbfb1517f1f419ddcb
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    links:
+      - db
+
+  db:
+    image: postgres:9.4-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: docker

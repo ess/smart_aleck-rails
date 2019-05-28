@@ -1,0 +1,12 @@
+#!/bin/bash
+
+defined() {
+  [ -n "${1}" ]
+}
+
+if defined "$@"
+then
+  docker-compose run dev $@
+else
+  docker-compose run dev /bin/bash
+fi

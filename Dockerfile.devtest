@@ -1,0 +1,26 @@
+FROM ruby:2.5.1
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get update && apt-get install -y \
+  build-essential \
+  wamerican \
+  gcc \
+  g++ \
+  make \
+  libfreeimage-dev \
+  nodejs \
+  yarn \
+  vim
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY . ./
+RUN gem install bundler --version '= 1.16.6' && bundle install
+
+EXPOSE 3000
+
+CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
